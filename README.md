@@ -80,6 +80,8 @@ if (islower(cipher[i]) && plain[i] < 'a') {
 ## OUTPUT:
 OUTPUT:
 Simulating Caesar Cipher
+
+
 ![image](https://github.com/user-attachments/assets/18fa5f16-4d3a-46b9-ada5-924f878cb0d3)
 
 ## RESULT:
