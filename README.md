@@ -1,8 +1,8 @@
+## NAME:Sandeep S
+## REG NO:212223220092
+
 # Hill Cipher
 Hill Cipher using with different key values
-# NAME:Sandeep S
-# REG NO:212223220092
-
 # AIM:
 
 To develop a simple C program to implement Hill Cipher.
