@@ -1,62 +1,83 @@
-## NAME Sandeep S
-## REG NO:212223220092
-# Vigenere Cipher
-Vigenere Cipher using with different key values
+## NAME:Sandeep S
+## REG NO: 212223220092
+
+# Rail Fence Cipher
+Rail Fence Cipher using with different key values
 # AIM:
-To develop a simple C program to implement Vigenere Cipher.
+
+To develop a simple C program to implement Rail Fence Cipher.
+
 ## DESIGN STEPS:
+
 ### Step 1:
-Design of Vigenere Cipher algorithnm 
+
+Design of Rail Fence Cipher algorithnm 
+
 ### Step 2:
+
 Implementation using C or pyhton code
+
 ### Step 3:
+
 Testing algorithm with different key values. 
+ALGORITHM DESCRIPTION:
+In the rail fence cipher, the plaintext is written downwards and diagonally on successive "rails" of an imaginary fence, then moving up when we reach the bottom rail. When we reach the top rail, the message is written downwards again until the whole plaintext is written out. The message is then read off in rows.
+
 ## PROGRAM:
+
 ```
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
-void main()
 
-{
-    char plain[10],cipher[10];
-    int key,i,length;
-    int result;
-    printf("\n Enter the plain text:");
-    scanf("%s", plain);
-    printf("\n Enter the key value:");
-    scanf("%d", &key);
-    printf("\n \n \t PLAIN TEXt: %s", plain);
-    printf("\n \n \t ENCRYPTED TEXT:");
-    for(i=0, length = strlen(plain); i<length; i++)
-    {
-        
-        cipher[i]=plain[i] + key;
-        if (isupper(plain[i]) && (cipher[i] > 'Z'))
-        cipher[i] = cipher[i] - 26;
-        if (islower(plain[i]) && (cipher[i] > 'z'))
-        cipher[i] = cipher[i] - 26;
-        printf("%c", cipher[i]);
+int main() {
+    int i, j, k, l;
+    char a[20], c[20], d[20];
 
+    printf("\n\t\t RAIL FENCE TECHNIQUE");
+    printf("\n\nEnter the input string : ");
+    fgets(a, sizeof(a), stdin);
+    a[strcspn(a, "\n")] = '\0';  // Remove newline
+
+    l = strlen(a);
+
+    // Encryption
+    for (i = 0, j = 0; i < l; i++) {
+        if (i % 2 == 0)
+            c[j++] = a[i];
     }
-    printf("\n \n \t AFTER DECRYPTION : ");
-    for(i=0;i<length;i++)
-    {
-        
-        plain[i]=cipher[i]-key;
-        if(isupper(cipher[i])&&(plain[i]<'A'))
-        plain[i]=plain[i]+26;
-        if(islower(cipher[i])&&(plain[i]<'a'))
-        plain[i]=plain[i]+26;
-        printf("%c",plain[i]);
+    for (i = 0; i < l; i++) {
+        if (i % 2 == 1)
+            c[j++] = a[i];
     }
+    c[j] = '\0';
 
-    
+    printf("\nCipher text after applying rail fence: %s", c);
+
+    // Decryption
+    if (l % 2 == 0)
+        k = l / 2;
+    else
+        k = (l / 2) + 1;
+
+    for (i = 0, j = 0; i < k; i++) {
+        d[j] = c[i];
+        j += 2;
+    }
+    for (i = k, j = 1; i < l; i++) {
+        d[j] = c[i];
+        j += 2;
+    }
+    d[l] = '\0';
+
+    printf("\nText after decryption: %s\n", d);
+
+    return 0;
 }
-```
 
+```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/cafdb0b5-caf7-48b9-a5bf-3d0712776853)
+
+![image](https://github.com/user-attachments/assets/9f22f06d-d87d-4c49-843e-a3c4a7eb9214)
 
 ## RESULT:
 The program is executed successfully
